@@ -30,19 +30,20 @@ public class Flock : MonoBehaviour
 
     void Start()
     {
+        //squaring the variables
         squareMaxSpeed = maxSpeed * maxSpeed;
         squareNeighbourRadius = neighbourRadius * neighbourRadius;
         squareAvoidanceRadius = squareNeighbourRadius* avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
 
-        for (int n = 0; n < startingCount; n++)
+        for (int n = 0; n < startingCount; n++) //for the agents in the flock
         {
-            Vector2 newPosition = ((Vector2)transform.position) + Random.insideUnitCircle * startingCount * agentDensity;
-            Quaternion newRotation = Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f));
-            FlockAgent newAgent = Instantiate(agentPrefab,newPosition,newRotation,transform);
+            Vector2 newPosition = ((Vector2)transform.position) + Random.insideUnitCircle * startingCount * agentDensity; //set random pos
+            Quaternion newRotation = Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f)); //set random rotation
+            FlockAgent newAgent = Instantiate(agentPrefab,newPosition,newRotation,transform); //spawn in with the pos and rot
 
             newAgent.Initialize(this);
-            newAgent.name = "Agent " + n;
-            agents.Add(newAgent);
+            newAgent.name = "Agent " + n; //label the agent
+            agents.Add(newAgent); //add new agent to the list
         }
     }
 

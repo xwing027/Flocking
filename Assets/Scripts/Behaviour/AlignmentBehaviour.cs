@@ -25,7 +25,7 @@ public class AlignmentBehaviour : FilteredFlockBehaviour
         {
             if ((item.transform.position - currentAgent.transform.position).sqrMagnitude <= flock.squareNeighbourRadius)
             {
-                alignmentMove += (Vector2)item.transform.up; // up here instead of transform 
+                alignmentMove += (Vector2)item.transform.up; 
                 count++;
             }
         }

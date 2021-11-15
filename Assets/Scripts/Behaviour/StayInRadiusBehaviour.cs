@@ -16,12 +16,13 @@ public class StayInRadiusBehaviour : FlockBehaviour
 
     public override Vector2 CalculateMove(FlockAgent agent, List<Transform> context, Flock flock)
     {
-        Vector2 centerOffset = center - (Vector2)agent.transform.position;
-        float radiusFraction = centerOffset.magnitude / radius;
+        Vector2 centerOffset = center - (Vector2)agent.transform.position; //get the offset from the centre by the agent's position
+        
+        float radiusFraction = centerOffset.magnitude / radius; //divide the centre offset's length by the radius
 
-        if (radiusFraction < innerRadiusPercent)
+        if (radiusFraction < innerRadiusPercent) //if the agent is too far outside the radius, calculated by the offset
         {
-            return Vector2.zero;
+            return Vector2.zero; //return 0,0
         }
         return centerOffset * radiusFraction * radiusFraction;
     }

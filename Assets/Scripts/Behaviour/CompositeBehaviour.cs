@@ -26,8 +26,6 @@ public class CompositeBehaviour : FlockBehaviour
 
             move += partialMove;
         }
-
-        //TODO: we might need to average this out or normalise or limit 
         return move;
     }
 }
